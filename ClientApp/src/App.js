@@ -30,15 +30,12 @@ const App = (props) => {
 
     return (
       <Layout>
-        <Route exact path='/Products' render= {routerProps => <ProductsView {...routerProps} />} />
+        <Route exact path='(/|/Products)' render= {routerProps => <ProductsView {...routerProps} />} />
         <Route exact path='/Products/:productID' render= {routerProps => <ProductDetailsView {...routerProps} />} />
         <Route exact path='/Bins' render= {routerProps => <BinsView {...routerProps} />} />
         <Route exact path='/Bins/:binID' render= {routerProps => <BinDetailsView {...routerProps} />} />
         <Route exact path='/Orders' render= {routerProps => <OrdersView {...routerProps} />} />
         <Route exact path='/Orders/:orderID' render= {routerProps => <OrderDetailsView  {...routerProps} />} />
-
-        {/* <Route path='/counter' component={Counter} /> */}
-        {/* <Route path='/fetch-data' component={FetchData} /> */}
       </Layout>
     );
 }
