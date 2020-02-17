@@ -15,7 +15,7 @@ const MoveInventory = ({inventory, moveInventory, bins}) => {
         }
     },[bins])
 
-    const renderBinOptions = () => bins.map(b => <option key={b.binId} value={b.binID}>{b.binName}</option>)
+    const renderBinOptions = () => bins.map(b => {if(b.binID !== inventory.binID){return <option key={b.binId} value={b.binID}>{b.binName}</option>}})
 
     const handleSubmit = (e) => {
         e.preventDefault()
