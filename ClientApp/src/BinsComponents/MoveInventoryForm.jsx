@@ -11,7 +11,11 @@ const MoveInventory = ({inventory, moveInventory, bins}) => {
 
     useEffect(() => {
         if(bins.length && !destinationBinID){
-            setDestinationBinID(bins[0].binID)
+            if(bins[0].binID !== inventory.binID){
+                setDestinationBinID(bins[0].binID)
+            }else if(bins.length > 1){
+                setDestinationBinID(bins[1].binID)
+            }
         }
     },[bins])
 
