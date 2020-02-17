@@ -10,12 +10,10 @@ const MoveInventory = ({inventory, moveInventory, bins}) => {
     const [moveQty, setMoveQty] = useState(null)
 
     useEffect(() => {
-        if(bins.length && !destinationBinID){
-            if(bins[0].binID !== inventory.binID){
-                setDestinationBinID(bins[0].binID)
-            }else if(bins.length > 1){
-                setDestinationBinID(bins[1].binID)
-            }
+        if(bins.length && !destinationBinID && bins[0].binID !== inventory.binID){
+            setDestinationBinID(bins[0].binID)
+        }else if(bins.length > 1 && (destinationBinID === inventory.binID || !destinationBinID)){
+            setDestinationBinID(bins[1].binID)
         }
     },[bins])
 
@@ -23,8 +21,13 @@ const MoveInventory = ({inventory, moveInventory, bins}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        moveInventory({sourceInventoryID: inventory.inventoryID, destinationBinID: parseInt(destinationBinID), productID: inventory.productID, qty: parseInt(moveQty)})
-        setMoveQty(0)
+        if(!destinationBinID)
+        {
+            alert('No Destination Bin selected!')
+        }else{
+            moveInventory({sourceInventoryID: inventory.inventoryID, destinationBinID: parseInt(destinationBinID), productID: inventory.productID, qty: parseInt(moveQty)})
+            setMoveQty(0)    
+        }
     }
 
     return(
@@ -33,7 +36,7 @@ const MoveInventory = ({inventory, moveInventory, bins}) => {
                 <Form.Control  as="select" onChange={(e) => setDestinationBinID(e.target.value)} value={destinationBinID}>
                     {renderBinOptions()}
                 </Form.Control>
-                <Form.Control  type="number" onChange={(e) => setMoveQty(e.target.value)} placeholder="QTY to Move" value={moveQty}/>
+                <Form.Control  type="number" min="0" onChange={(e) => setMoveQty(e.target.value)} placeholder="QTY to Move" value={moveQty}/>
                 <Button  type="submit">Move Inventory</Button>
             </Form>
         </>

@@ -47,7 +47,7 @@ function BinDetailsView({bin, match, fetchCurrentBin, updateBin, deleteBin, crea
                 <td>{i.productDescription}</td>
                 <td>{i.productSKU}</td>
                 <td>{i.qty}</td>
-                <td style={{width:'1%', whiteSpace:'nowrap'}}><MoveInventoryForm inventory={i} bins={bins} /></td>
+                <td style={{width:'1%', whiteSpace:'nowrap'}}><MoveInventoryForm key={i.inventoryID} inventory={i} bins={bins} /></td>
             </tr>
         )
     })
@@ -90,7 +90,7 @@ function BinDetailsView({bin, match, fetchCurrentBin, updateBin, deleteBin, crea
             <Form.Control as="select" onChange={(e) => setNewInventoryProductID(e.target.value)} value={newInventoryProductID}>
                 {renderProductOptions()}
             </Form.Control>
-            <Form.Control type="number" onChange={(e) => setNewInventoryQTY(e.target.value)} placeholder="QTY to Add" value={newInventoryQTY}/>
+            <Form.Control type="number" min="0" onChange={(e) => setNewInventoryQTY(e.target.value)} placeholder="QTY to Add" value={newInventoryQTY}/>
             <Button type="submit">Add Inventory</Button>
         </form>
         {/* {Table for open orders} */}

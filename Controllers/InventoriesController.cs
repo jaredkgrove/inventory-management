@@ -69,7 +69,10 @@ namespace Scout.Controllers
                 .Include(i => i.Bin)
                 .FirstOrDefaultAsync(i => i.InventoryID == moveInventoryDto.SourceInventoryID);
 
-
+            if(moveInventoryDto.QTY > sourceInventory.QTY){
+                return BadRequest();
+            }
+            
             var DestinationPostResponse = await PostInventory(new Inventory
                 {
                     BinID= moveInventoryDto.DestinationBinID,

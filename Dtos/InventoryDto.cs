@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Scout.Models
@@ -11,6 +12,7 @@ namespace Scout.Models
         public long BinID {get; set;}
         public Bin Bin {set {this.BinName = value.BinName;}}
         public string BinName {get; set;}
+        [Range(0, int.MaxValue)]
         public int QTY {get; set;}
     }
 }

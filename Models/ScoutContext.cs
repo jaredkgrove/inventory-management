@@ -22,7 +22,6 @@ namespace Scout.Models
         public DbSet<Scout.Models.Bin> Bin { get; set; }
         public DbSet<Scout.Models.Inventory> Inventory { get; set; }
         public DbSet<Scout.Models.Order> Order { get; set; }
-
         public DbSet<Scout.Models.OrderLine> OrderLine { get; set; }
         public DbSet<Scout.Models.Product> Product { get; set; }
 

@@ -88,7 +88,7 @@ function ProductDetailsView({product, match, fetchCurrentProduct, updateProduct,
             <Form.Control as="select" onChange={(e) => setNewInventoryBinID(e.target.value)} value={newInventoryBinID} >
                 {renderBinOptions()}
             </Form.Control>
-            <Form.Control type="number" onChange={(e) => setNewInventoryQTY(e.target.value)} placeholder="QTY to Add" value={newInventoryQTY}/>
+            <Form.Control type="number" min="0" onChange={(e) => setNewInventoryQTY(e.target.value)} placeholder="QTY to Add" value={newInventoryQTY}/>
             <Button type="submit">Add Inventory</Button>
         </form>
         {/* {Table for open orders} */}

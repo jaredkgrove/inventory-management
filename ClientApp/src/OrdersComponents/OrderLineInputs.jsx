@@ -39,7 +39,7 @@ function OrderLineInputs(props){
             <Form.Control as="select" onChange={(e) => {setProductID(e.target.value); setProductDescription(e.target.options[e.target.selectedIndex].text)}} value={productID}>
                 {renderProductOptions()}
             </Form.Control>
-            <Form.Control type="number" value={qty} onChange={handleChange} placeholder="QTY to Add"/>
+            <Form.Control type="number" min="0" value={qty} onChange={handleChange} placeholder="QTY to Add"/>
             <Button onClick={handleClick}>Add To Order</Button>
         </>
     ) 

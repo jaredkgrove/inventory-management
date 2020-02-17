@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Scout.Models
 {
@@ -15,6 +16,7 @@ namespace Scout.Models
         public string ProductDescription {get; set;}
         public string SKU {get; set;}
         // public long FillBinID {get; set;}
+        [Range(0, int.MaxValue)]
         public int QTY {get; set;}
     }
 }
