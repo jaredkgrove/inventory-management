@@ -10,8 +10,8 @@ using Scout.Models;
 namespace Scout.Migrations
 {
     [DbContext(typeof(ScoutContext))]
-    [Migration("20200210201457_init")]
-    partial class init
+    [Migration("20200218142832_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,9 +98,6 @@ namespace Scout.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("FillBinID")
-                        .HasColumnType("bigint");
 
                     b.Property<long>("OrderID")
                         .HasColumnType("bigint");

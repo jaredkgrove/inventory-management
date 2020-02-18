@@ -10,7 +10,12 @@ function NewBin(props){
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.createBin({binName: binName})
+        if(binName){
+            props.createBin({binName: binName})
+            setBinName('')
+        }else{
+            alert('Please enter bin name')
+        }
     }
 
     return(

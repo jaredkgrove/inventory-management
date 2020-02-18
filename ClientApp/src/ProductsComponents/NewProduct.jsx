@@ -11,7 +11,14 @@ function NewProduct(props){
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.createProduct({sku: sku, productDescription: productDescription})
+        if(sku && productDescription){
+            props.createProduct({sku: sku, productDescription: productDescription})
+            setSku('')
+            setProductDescription('')
+        }else{
+            alert('Please enter SKU and Product Description')
+        }
+
     }
 
     return(

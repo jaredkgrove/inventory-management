@@ -15,7 +15,7 @@ function ProductsTable({products, history}){
 
     return (
         <>
-        <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}></input>
+        <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder='Search...'></input>
         <Table striped bordered hover size="sm">
             <thead onClick={(e) => console.log(e.target.innerText)}>
                 <tr>

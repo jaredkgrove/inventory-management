@@ -97,9 +97,6 @@ namespace Scout.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("FillBinID")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("OrderID")
                         .HasColumnType("bigint");
 

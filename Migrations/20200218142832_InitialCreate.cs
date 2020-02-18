@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Scout.Migrations
 {
-    public partial class init : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -86,7 +86,6 @@ namespace Scout.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderID = table.Column<long>(nullable: false),
                     ProductID = table.Column<long>(nullable: false),
-                    FillBinID = table.Column<long>(nullable: false),
                     QTY = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

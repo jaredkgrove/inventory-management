@@ -6,7 +6,7 @@ import OrderRow from './OrderRow'
 function OrdersTable({orders, history}){
     const renderOrders = () => orders.map((o) => <OrderRow key={o.orderID} order={o}  handleSelect={(id) => history.push(`/orders/${id}`)}/>)
 
-
+    
     return (
         <Table striped bordered hover size="sm">
             <thead>
