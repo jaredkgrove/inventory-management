@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Scout.Models;
 using System.Collections.Generic;
 using AutoMapper;
+using System;
 
 namespace Scout
 {
@@ -24,9 +25,9 @@ namespace Scout
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddDbContext<ScoutContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            // services.AddDbContext<ScoutContext>(opt => opt.UseInMemoryDatabase("ScoutDb"));
+            // services.AddDbContext<ScoutContext>(options =>
+                // options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ScoutContext>(opt => opt.UseInMemoryDatabase("ScoutDb"));
             services.AddControllers();
 
             // In production, the React files will be served from this directory
@@ -71,7 +72,7 @@ namespace Scout
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
-            // AddSeedData(app);
+            AddSeedData(app);
         }
         private static void AddSeedData(IApplicationBuilder app){
             using (var serviceScope = app.ApplicationServices.CreateScope())

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Scout.Models;
 
 namespace Scout.Models
 {
