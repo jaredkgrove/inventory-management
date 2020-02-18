@@ -4,12 +4,20 @@ import Table from 'react-bootstrap/Table'
 import ProductRow from './ProductRow'
 
 function ProductsTable({products, history}){
-    const renderProducts = () => products.map((p) => <ProductRow key={p.sku} product={p}  handleSelect={(id) => history.push(`/products/${id}`)}/>)
+    const [searchValue, setSearchValue] = useState('')
 
+    const renderProducts = () => products.map((p) => {
+        if(p.productDescription.toLowerCase().includes(searchValue.toLowerCase()) || p.sku.toLowerCase().includes(searchValue.toLowerCase()) || searchValue === '')
+        {
+            return <ProductRow key={p.sku} product={p}  handleSelect={(id) => history.push(`/products/${id}`)}/>
+        }
+    })
 
     return (
+        <>
+        <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}></input>
         <Table striped bordered hover size="sm">
-            <thead>
+            <thead onClick={(e) => console.log(e.target.innerText)}>
                 <tr>
                     <th>SKU</th>
                     <th>Product Description</th>
@@ -20,6 +28,7 @@ function ProductsTable({products, history}){
                 {renderProducts()}
             </tbody>
         </Table>
+        </>
     );
 }
 
