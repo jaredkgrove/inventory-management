@@ -11,7 +11,7 @@ const OrderRow = ({order, handleSelect}) => {
                 <td>{order.customerName}</td>
                 <td>{order.customerAddress}</td>
                 <td>
-                    <Button onClick={() => handleSelect(order.orderID)}>View/Edit</Button>
+                    <Button variant="outline-info" onClick={() => handleSelect(order.orderID)}>View/Edit</Button>
                 </td>
             </tr>
         </>

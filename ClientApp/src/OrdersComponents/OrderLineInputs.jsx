@@ -40,7 +40,7 @@ function OrderLineInputs(props){
                 {renderProductOptions()}
             </Form.Control>
             <Form.Control type="number" min="0" value={qty} onChange={handleChange} placeholder="QTY to Add"/>
-            <Button onClick={handleClick}>Add To Order</Button>
+            <Button variant="secondary" onClick={handleClick}>Add To Order</Button>
         </>
     ) 
 }

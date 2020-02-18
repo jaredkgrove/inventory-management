@@ -9,7 +9,7 @@ const ProductRow = ({product, handleSelect}) => {
                 <td>{product.productDescription}</td>
                 <td>{product.totalInventory}</td>
                 <td style={{    width:'1%', whiteSpace:'nowrap'}}>
-                    <Button onClick={() => handleSelect(product.productID)}>View/Edit</Button>
+                    <Button variant="outline-info" onClick={() => handleSelect(product.productID)}>View/Edit</Button>
                 </td>
             </tr>
         </>

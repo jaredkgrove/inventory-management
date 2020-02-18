@@ -52,25 +52,27 @@ function NewOrder(props){
     
 
     return(
-        <form onSubmit={handleSubmit}>
-            {/* <input type="text" name="orderNumber" value={orderNumber} onChange={(e) => setOrderNumber( e.target.value)} placeholder="Order Number"/> */}
-            <Form.Control type="text" name="customerName" value={customerName} onChange={(e) => setCustomerName( e.target.value)} placeholder="Customer Name"/>
-            <Form.Control type="text" name="customerAddress" value={customerAddress} onChange={(e) => setCustomerAddress( e.target.value)} placeholder="Customer Address"/>
-            <Button type="submit">Create Order</Button>
-            <Table striped bordered hover size="sm">
-                <thead>
-                    <tr>
-                        <th>productDescription</th>
-                        <th>QTY</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {renderOrderLines()}
-                </tbody>
-            </Table>
-            {renderOrderLinesInputs()}
-   
-        </form> 
+        <Form onSubmit={handleSubmit}>
+            <Form.Group>
+                {/* <input type="text" name="orderNumber" value={orderNumber} onChange={(e) => setOrderNumber( e.target.value)} placeholder="Order Number"/> */}
+                <Form.Control type="text" name="customerName" value={customerName} onChange={(e) => setCustomerName( e.target.value)} placeholder="Customer Name"/>
+                <Form.Control type="text" name="customerAddress" value={customerAddress} onChange={(e) => setCustomerAddress( e.target.value)} placeholder="Customer Address"/>
+                {renderOrderLinesInputs()}
+                <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>productDescription</th>
+                            <th>QTY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {renderOrderLines()}
+                    </tbody>
+                </Table>
+
+                <Button type="submit">Create Order</Button>
+            </Form.Group>
+        </Form> 
     ) 
 }
 
